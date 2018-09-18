@@ -55,7 +55,6 @@ import org.aospextended.extensions.preference.CustomSeekBarPreference;
 
 public class Buttons extends ActionFragment implements OnPreferenceChangeListener {
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
-    private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT =
             "torch_long_press_power_timeout";
 
@@ -87,9 +86,7 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
-    private ListPreference mVolumeKeyCursorControl;
     private ListPreference mTorchLongPressPowerTimeout;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,16 +97,6 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        // volume key cursor control
-        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-        if (mVolumeKeyCursorControl != null) {
-            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-            int volumeRockerCursorControl = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
-            mVolumeKeyCursorControl.setValue(Integer.toString(volumeRockerCursorControl));
-           mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-        }
-
         mTorchLongPressPowerTimeout =
                     (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
 
@@ -118,7 +105,6 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
                         Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
         mTorchLongPressPowerTimeout.setValue(Integer.toString(TorchTimeout));
         mTorchLongPressPowerTimeout.setSummary(mTorchLongPressPowerTimeout.getEntry());
-
 
         mManualButtonBrightness = (CustomSeekBarPreference) findPreference(
                 KEY_BUTTON_MANUAL_BRIGHTNESS_NEW);
@@ -240,16 +226,6 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
             int buttonBrightness = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
-        } else if (preference == mVolumeKeyCursorControl) {
-            String volumeKeyCursorControl = (String) objValue;
-            int volumeKeyCursorControlValue = Integer.parseInt(volumeKeyCursorControl);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, volumeKeyCursorControlValue);
-            int volumeKeyCursorControlIndex = mVolumeKeyCursorControl
-                    .findIndexOfValue(volumeKeyCursorControl);
-            mVolumeKeyCursorControl
-                    .setSummary(mVolumeKeyCursorControl.getEntries()[volumeKeyCursorControlIndex]);
-            return true;
         } else if (preference == mTorchLongPressPowerTimeout) {
             String TorchTimeout = (String) objValue;
             int TorchTimeoutValue = Integer.parseInt(TorchTimeout);
