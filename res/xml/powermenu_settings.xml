@@ -28,7 +28,7 @@
          <org.aospextended.extensions.preference.SystemSettingSwitchPreference
             android:key="powermenu_restart_recovery"
             android:title="@string/powermenu_restart_recovery"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
          <org.aospextended.extensions.preference.SystemSettingSwitchPreference
             android:key="powermenu_screenshot"
@@ -53,7 +53,7 @@
          <org.aospextended.extensions.preference.SystemSettingSwitchPreference
             android:key="powermenu_lockdown"
             android:title="@string/powermenu_lockdown"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
          <SwitchPreference
             android:key="powermenu_users"
