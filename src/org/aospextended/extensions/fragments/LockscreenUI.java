@@ -69,7 +69,7 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
             prefSet.removePreference(mFaceUnlock);
         } else {
             mFaceUnlock.setChecked((Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.FACE_AUTO_UNLOCK, 0) == 1));
+                    Settings.Secure.FACE_AUTO_UNLOCK, 1) == 1));
             mFaceUnlock.setOnPreferenceChangeListener(this);
         }
 
