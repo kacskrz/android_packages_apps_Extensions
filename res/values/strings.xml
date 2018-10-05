@@ -273,4 +273,7 @@
     <string name="weather_unit_metric" translatable="false">Celsius</string>
     <string name="weather_unit_imperial" translatable="false">Fahrenheit</string>
 
+    <!-- Battery Styles -->
+    <string name="status_bar_battery_style_title">Statusbar battery style</string>
+
 </resources>
