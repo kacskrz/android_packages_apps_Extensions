@@ -36,7 +36,7 @@ public class EdgeGesturesSettings extends SettingsPreferenceFragment implements
         enabledPreference.setOnPreferenceChangeListener(this);
 
         screenPercentPreference = (SecureSettingSeekBarPreference) findPreference(EDGE_GESTURES_SCREEN_PERCENT);
-        int percent = Settings.Secure.getIntForUser(getContentResolver(), Settings.Secure.EDGE_GESTURES_BACK_SCREEN_PERCENT, 60, UserHandle.USER_CURRENT);
+        int percent = Settings.Secure.getIntForUser(getContentResolver(), Settings.Secure.EDGE_GESTURES_BACK_SCREEN_PERCENT, 65, UserHandle.USER_CURRENT);
         screenPercentPreference.setValue(percent);
         screenPercentPreference.setIntervalValue(5);
     }
