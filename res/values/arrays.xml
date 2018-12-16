@@ -74,22 +74,6 @@
         <item>@string/action_value_select_app</item>
     </string-array>
 
-    <string-array name="torch_long_press_power_timeout_entries" translatable="false">
-        <item>@string/torch_long_press_power_timeout_never</item>
-        <item>@string/torch_long_press_power_timeout_1min</item>
-        <item>@string/torch_long_press_power_timeout_2min</item>
-        <item>@string/torch_long_press_power_timeout_5min</item>
-        <item>@string/torch_long_press_power_timeout_10min</item>
-    </string-array>
-
-    <string-array name="torch_long_press_power_timeout_values" translatable="false">
-        <item>0</item>
-        <item>60</item>
-        <item>120</item>
-        <item>300</item>
-        <item>600</item>
-    </string-array>
-
    <!-- Network Traffic Type -->
     <string-array name="show_network_traffic_type_entries" translatable="false">
         <item>@string/show_network_traffic_up</item>
