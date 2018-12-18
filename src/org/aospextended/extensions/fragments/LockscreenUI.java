@@ -48,7 +48,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import org.aospextended.extensions.Utils;
 
-import com.android.internal.util.custom.weather.WeatherClient;
+import com.android.internal.util.weather.WeatherClient;
 
 public class LockscreenUI extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
