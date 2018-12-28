@@ -92,6 +92,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_SHOW, checked ? 1:0);
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.HARDWARE_KEYS_DISABLE, checked ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);

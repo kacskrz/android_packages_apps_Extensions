@@ -205,6 +205,8 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
                     value ? 1 : 0);
+            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
+                    value ? 1 : 0);
             setActionPreferencesEnabled(!value);
         } else if (preference == mButtonTimoutBar) {
             int buttonTimeout = (Integer) objValue;
