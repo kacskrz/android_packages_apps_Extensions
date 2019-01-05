@@ -269,6 +269,7 @@
 
     <!-- Edge gestures -->
     <string name="edge_gestures_title">Edge gestures</string>
+    <string name="edge_gestures_feedback_duration_title">Haptic feedback duration</string>
     <string name="edge_gestures_long_press_delay_title">Delay until long press action starts</string>
     <string name="edge_gestures_back_category_title">Back gesture</string>
     <string name="edge_gestures_back_edges_title">Trigger back gesture from</string>
