@@ -207,6 +207,7 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
                     value ? 1 : 0);
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
                     value ? 1 : 0);
+            Settings.System.putInt(getContentResolver(), Settings.System.OMNI_USE_BOTTOM_GESTURE_NAVIGATION, 0);
             setActionPreferencesEnabled(!value);
         } else if (preference == mButtonTimoutBar) {
             int buttonTimeout = (Integer) objValue;

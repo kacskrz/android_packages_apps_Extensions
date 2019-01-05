@@ -94,6 +94,8 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
                     Settings.System.NAVIGATION_BAR_SHOW, checked ? 1:0);
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.HARDWARE_KEYS_DISABLE, checked ? 1 : 0);
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.System.OMNI_USE_BOTTOM_GESTURE_NAVIGATION, 0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);
