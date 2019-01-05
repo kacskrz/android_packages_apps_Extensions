@@ -55,10 +55,10 @@
             android:key="edge_gestures_back_screen_percent"
             android:title="@string/edge_gestures_back_screen_percent_summary"
             android:min="0"
-            android:max="65"
-            settings:defaultText="35 %"
+            android:max="90"
+            settings:defaultText="25 %"
             settings:units="%"
-            android:defaultValue="35" />
+            android:defaultValue="25" />
 
     </PreferenceCategory>
 
