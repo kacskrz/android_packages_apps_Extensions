@@ -89,7 +89,7 @@ public class NavbarSettings extends SettingsPreferenceFragment implements OnPref
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mEnableNavBar) {
-            final ContentResolver resolver = getContentResolver();
+            final ContentResolver resolver = getActivity().getContentResolver();
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(resolver,
                     Settings.System.NAVIGATION_BAR_SHOW, checked ? 1:0);

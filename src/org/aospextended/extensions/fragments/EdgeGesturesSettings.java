@@ -1,6 +1,8 @@
 package org.aospextended.extensions;
 
 import android.app.ActionBar;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -69,7 +71,7 @@ public class EdgeGesturesSettings extends SettingsPreferenceFragment implements
             int enabled = ((boolean) newValue) ? 1 : 0;
             //Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.EDGE_GESTURES_ENABLED, enabled, UserHandle.USER_CURRENT);
 
-            final ContentResolver = getContentResolver();
+            final ContentResolver resolver = getActivity().getContentResolver();
             if (enabled == 1) {
                 Settings.System.putInt(resolver,
                         Settings.System.NAVIGATION_BAR_SHOW,
