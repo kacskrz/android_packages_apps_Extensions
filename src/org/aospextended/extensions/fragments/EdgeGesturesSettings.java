@@ -69,15 +69,23 @@ public class EdgeGesturesSettings extends SettingsPreferenceFragment implements
             int enabled = ((boolean) newValue) ? 1 : 0;
             //Settings.Secure.putIntForUser(getContentResolver(), Settings.Secure.EDGE_GESTURES_ENABLED, enabled, UserHandle.USER_CURRENT);
 
+            final ContentResolver = getContentResolver();
             if (enabled == 1) {
-                Settings.System.putInt(getContentResolver(),
+                Settings.System.putInt(resolver,
                         Settings.System.NAVIGATION_BAR_SHOW,
                         0);
+                Settings.Secure.putInt(resolver,
+                        Settings.Secure.HARDWARE_KEYS_DISABLE,
+                        1);
             } else {
                 if (ActionUtils.hasNavbarByDefault(getPrefContext())) {
-                    Settings.System.putInt(getContentResolver(),
+                    Settings.System.putInt(resolver,
                             Settings.System.NAVIGATION_BAR_SHOW,
                             1);
+                } else {
+                    Settings.Secure.putInt(resolver,
+                            Settings.Secure.HARDWARE_KEYS_DISABLE,
+                            0);
                 }
             }
             return true;

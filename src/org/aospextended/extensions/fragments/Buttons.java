@@ -203,18 +203,20 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mHwKeyDisable) {
             boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
+            final ContentResolver resolver = getContentResolver();
+            Settings.Secure.putInt(resolver, Settings.Secure.HARDWARE_KEYS_DISABLE,
                     value ? 1 : 0);
-            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
+            Settings.System.putInt(resolver, Settings.System.NAVIGATION_BAR_SHOW,
                     value ? 1 : 0);
+            Settings.Secure:putInt(resolver, Settings.Secure.EDGE_GESTURES_ENABLED, 0);
             setActionPreferencesEnabled(!value);
         } else if (preference == mButtonTimoutBar) {
             int buttonTimeout = (Integer) objValue;
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
         } else if (preference == mManualButtonBrightness) {
             int buttonBrightness = (Integer) objValue;
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(resolver,
                     Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
         } else {
             return false;
